@@ -1,5 +1,7 @@
 let audioContext: AudioContext | null = null;
 const bufferCache = new Map<string, AudioBuffer>();
+const audioUnlockEvents = ['pointerdown', 'keydown'] as const;
+let audioUnlockListenersInstalled = false;
 
 export function getAudioContext(): AudioContext {
   if (!audioContext) {
@@ -23,6 +25,40 @@ export async function decodeAudioData(dataUri: string): Promise<AudioBuffer> {
   const audioBuffer = await ctx.decodeAudioData(bytes.buffer.slice(0));
   bufferCache.set(dataUri, audioBuffer);
   return audioBuffer;
+}
+
+export async function unlockAudioContext(): Promise<void> {
+  const ctx = getAudioContext();
+
+  if (ctx.state === 'suspended') {
+    await ctx.resume();
+  }
+}
+
+export function installAudioUnlockListeners(target: Window = window): void {
+  if (audioUnlockListenersInstalled) {
+    return;
+  }
+
+  audioUnlockListenersInstalled = true;
+
+  const unlock = () => {
+    void unlockAudioContext().catch(() => {
+      audioUnlockListenersInstalled = false;
+    });
+
+    for (const event of audioUnlockEvents) {
+      target.removeEventListener(event, unlock, true);
+    }
+  };
+
+  for (const event of audioUnlockEvents) {
+    target.addEventListener(event, unlock, {
+      capture: true,
+      once: true,
+      passive: true
+    });
+  }
 }
 
 export interface PlaySoundOptions {

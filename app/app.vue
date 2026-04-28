@@ -7,7 +7,9 @@ useHead({
   link: [
     {
       rel: 'icon',
-      href: '/favicon.ico'
+      type: 'image/x-icon',
+      sizes: '32x32',
+      href: '/favicon.ico?v=1'
     }
   ]
 })

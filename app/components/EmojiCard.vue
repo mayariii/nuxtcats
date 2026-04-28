@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { playSound } from '@/lib/sound-engine'
+import { installAudioUnlockListeners, playSound } from '@/lib/sound-engine'
 import { click003Sound } from '@/lib/soundcn/sounds/click-003/click-003'
 import type { Emoji } from '../data/emojis'
 
@@ -10,6 +10,10 @@ const props = defineProps<{
 const shortcode = computed(() => toSlackShortcode(props.emoji.name))
 const downloadFilename = computed(() => getDownloadFilename(props.emoji))
 const toast = useToast()
+
+onMounted(() => {
+  installAudioUnlockListeners()
+})
 
 async function copyShortcode() {
   try {
