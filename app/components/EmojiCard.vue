@@ -53,7 +53,7 @@ async function playHoverSound(event: PointerEvent) {
     variant="outline"
     class="group/card w-fit rounded-lg border border-default bg-elevated/70 text-default transition duration-200 hover:-translate-y-0.5 hover:border-primary hover:bg-elevated"
     :ui="{
-      body: 'flex items-center gap-1.5 p-2!'
+      body: 'flex items-center gap-1.5 p-3! sm:p-2!'
     }"
     @pointerenter="playHoverSound"
   >
