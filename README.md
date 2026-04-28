@@ -1,4 +1,4 @@
-# Nuxt Cats
+# [Nuxt Cats](https://nuxtcats.vercel.app)
 
 A Nuxt rebuild of [Slackcats](https://github.com/mayariii/slackcats): a tiny
 directory of silly cat emojis for Slack.
