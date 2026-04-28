@@ -12,7 +12,19 @@ useSeoMeta({
 <template>
   <main class="min-h-screen overflow-hidden bg-default text-default">
     <UContainer class="relative py-6 pb-16 sm:py-10">
-      <header class="relative z-10 flex items-center justify-end">
+      <header class="relative z-10 flex items-center justify-end gap-1">
+        <UButton
+          square
+          as="a"
+          href="https://github.com/mayariii/nuxtcats"
+          target="_blank"
+          rel="noopener noreferrer"
+          color="neutral"
+          variant="ghost"
+          size="lg"
+          icon="i-lucide-github"
+          aria-label="View source on GitHub"
+        />
         <UColorModeButton
           color="neutral"
           variant="ghost"
