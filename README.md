@@ -28,30 +28,6 @@ project:
 | Local event handlers | Functions in `<script setup>` |
 | App CSS imports | `app/assets/css/main.css` configured in `nuxt.config.ts` |
 
-## Project Structure
-
-```text
-app/
-  app.vue
-  assets/
-    css/
-      main.css
-  components/
-    EmojiCard.vue
-  data/
-    emojis.ts
-  pages/
-    index.vue
-  utils/
-    emoji.ts
-public/
-  emojis/
-    cat-goggles.png
-    ...
-  favicon.ico
-tests/
-  emoji.test.ts
-```
 
 ## Nuxt Concepts In Use
 
