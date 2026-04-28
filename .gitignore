@@ -18,7 +18,6 @@ logs
 .cursor/
 .fleet
 .idea
-AGENTS.md
 
 # Local env files
 .env
