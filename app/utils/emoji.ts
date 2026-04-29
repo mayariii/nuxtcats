@@ -9,17 +9,3 @@ export function getDownloadFilename(emoji: Emoji) {
 
   return `${emoji.name}.${extension}`
 }
-
-export function filterEmojis(emojis: Emoji[], query: string) {
-  const normalizedQuery = query.trim().toLowerCase()
-
-  if (!normalizedQuery) {
-    return emojis
-  }
-
-  return emojis.filter((emoji) => {
-    const searchableText = `${emoji.name} ${emoji.alt}`.toLowerCase()
-
-    return searchableText.includes(normalizedQuery)
-  })
-}

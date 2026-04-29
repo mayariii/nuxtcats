@@ -51,16 +51,16 @@ async function playHoverSound(event: PointerEvent) {
   <UCard
     as="article"
     variant="outline"
-    class="group/card w-fit rounded-lg border border-default bg-elevated/70 text-default transition duration-200 hover:-translate-y-0.5 hover:border-primary hover:bg-elevated"
+    class="group/card w-full rounded-xl border border-default bg-elevated/70 text-default transition duration-200 hover:-translate-y-0.5 hover:border-primary hover:bg-elevated sm:w-fit sm:rounded-lg"
     :ui="{
-      body: 'flex items-center gap-1.5 p-3! sm:p-2!'
+      body: 'flex items-center gap-4 p-4! sm:gap-1.5 sm:p-2!'
     }"
     @pointerenter="playHoverSound"
   >
     <a
       :href="emoji.src"
       :download="downloadFilename"
-      class="group/image relative grid size-16 shrink-0 place-items-center overflow-hidden rounded-lg bg-muted ring-1 ring-default transition duration-200 hover:scale-105 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-primary"
+      class="group/image relative grid size-20 shrink-0 place-items-center overflow-hidden rounded-lg bg-muted ring-1 ring-default transition duration-200 hover:scale-105 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-primary sm:size-16"
       :aria-label="`Download ${shortcode}`"
     >
       <NuxtImg
@@ -84,11 +84,11 @@ async function playHoverSound(event: PointerEvent) {
 
     <button
       type="button"
-      class="inline-flex max-w-full items-center rounded-md px-0.5 py-1 font-mono text-sm text-highlighted transition duration-200 hover:text-primary focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-primary"
+      class="inline-flex min-w-0 flex-1 items-center justify-start rounded-md px-0.5 py-1 text-left font-mono text-xl text-highlighted transition duration-200 hover:text-primary focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-primary sm:flex-none sm:text-sm"
       :aria-label="`Copy ${shortcode}`"
       @click="copyShortcode"
     >
-      <span class="whitespace-nowrap">{{ shortcode }}</span>
+      <span class="truncate whitespace-nowrap">{{ shortcode }}</span>
     </button>
   </UCard>
 </template>

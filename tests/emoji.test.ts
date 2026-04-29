@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'bun:test'
-import { emojis } from '../app/data/emojis'
-import { filterEmojis, getDownloadFilename, toSlackShortcode } from '../app/utils/emoji'
+import { getDownloadFilename, toSlackShortcode } from '../app/utils/emoji'
 
 describe('emoji helpers', () => {
   it('wraps an emoji name in Slack shortcode punctuation', () => {
@@ -15,10 +14,4 @@ describe('emoji helpers', () => {
     })).toBe('cat-goggles.png')
   })
 
-  it('filters by emoji name and alt text without changing the source list', () => {
-    const result = filterEmojis(emojis, 'sleepy')
-
-    expect(result.map(emoji => emoji.name)).toEqual(['cat-eepy', 'cat-sleepy-eepy'])
-    expect(emojis[0]?.name).toBe('cat-goggles')
-  })
 })

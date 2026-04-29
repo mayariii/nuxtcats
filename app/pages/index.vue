@@ -59,7 +59,7 @@ useSeoMeta({
         aria-label="Emoji directory"
       >
         <div
-          class="flex flex-wrap justify-center gap-x-2 gap-y-4 sm:gap-3"
+          class="grid gap-3 sm:flex sm:flex-wrap sm:justify-center sm:gap-3"
         >
           <EmojiCard
             v-for="emoji in emojis"
